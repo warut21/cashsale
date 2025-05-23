@@ -1,0 +1,1729 @@
+object FrmKeybillno: TFrmKeybillno
+  Left = 169
+  Top = 68
+  Width = 832
+  Height = 600
+  Caption = 'Billing'
+  Color = clGradientActiveCaption
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  WindowState = wsMaximized
+  OnCreate = FormCreate
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label4: TLabel
+    Left = 37
+    Top = 73
+    Width = 68
+    Height = 25
+    AutoSize = False
+    Caption = #3648#3621#3586#3607#3637#3656#3648#3629#3585#3626#3634#3619
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object Label1: TLabel
+    Left = 12
+    Top = 18
+    Width = 761
+    Height = 16
+    Alignment = taCenter
+    AutoSize = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clNavy
+    Font.Height = -16
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label6: TLabel
+    Left = 285
+    Top = 70
+    Width = 53
+    Height = 23
+    AutoSize = False
+    Caption = #3619#3627#3633#3626#3621#3641#3585#3588#3657#3634
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Transparent = True
+    Layout = tlCenter
+  end
+  object LabelCust_name: TLabel
+    Left = 445
+    Top = 70
+    Width = 280
+    Height = 23
+    AutoSize = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    Layout = tlCenter
+  end
+  object Lbl_Bill_status: TLabel
+    Left = 122
+    Top = 104
+    Width = 98
+    Height = 16
+    Caption = 'Lbl_Bill_status'
+    Color = clGradientActiveCaption
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clRed
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object EdtKeybillno: TEdit
+    Left = 124
+    Top = 73
+    Width = 126
+    Height = 25
+    AutoSize = False
+    CharCase = ecUpperCase
+    Color = clCream
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    MaxLength = 8
+    ParentFont = False
+    TabOrder = 0
+    OnExit = EdtKeybillnoExit
+    OnKeyPress = EdtKeybillnoKeyPress
+  end
+  object BtnOk: TButton
+    Left = 295
+    Top = 523
+    Width = 73
+    Height = 25
+    Caption = 'OK'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+    OnClick = BtnOkClick
+  end
+  object BtnCancel: TButton
+    Left = 439
+    Top = 521
+    Width = 73
+    Height = 25
+    Caption = 'Close'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+    OnClick = BtnCancelClick
+  end
+  object Panel2: TPanel
+    Left = 9
+    Top = 125
+    Width = 800
+    Height = 396
+    Color = clMedGray
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
+    object Lblmat_des1: TLabel
+      Left = 260
+      Top = 32
+      Width = 110
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_des2: TLabel
+      Left = 260
+      Top = 56
+      Width = 110
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_des3: TLabel
+      Left = 260
+      Top = 80
+      Width = 110
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_des4: TLabel
+      Left = 260
+      Top = 104
+      Width = 110
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_des5: TLabel
+      Left = 260
+      Top = 128
+      Width = 110
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_des6: TLabel
+      Left = 260
+      Top = 152
+      Width = 110
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_des7: TLabel
+      Left = 260
+      Top = 176
+      Width = 110
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_des8: TLabel
+      Left = 260
+      Top = 200
+      Width = 110
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_des9: TLabel
+      Left = 260
+      Top = 224
+      Width = 110
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_des10: TLabel
+      Left = 260
+      Top = 248
+      Width = 110
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_price1: TLabel
+      Left = 370
+      Top = 32
+      Width = 100
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_price2: TLabel
+      Left = 370
+      Top = 56
+      Width = 100
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_price3: TLabel
+      Left = 370
+      Top = 80
+      Width = 100
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_price4: TLabel
+      Left = 370
+      Top = 104
+      Width = 100
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_price5: TLabel
+      Left = 370
+      Top = 128
+      Width = 100
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_price6: TLabel
+      Left = 370
+      Top = 152
+      Width = 100
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_price7: TLabel
+      Left = 370
+      Top = 176
+      Width = 100
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_price8: TLabel
+      Left = 370
+      Top = 200
+      Width = 100
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_price9: TLabel
+      Left = 370
+      Top = 224
+      Width = 100
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_price10: TLabel
+      Left = 370
+      Top = 248
+      Width = 100
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_unit1: TLabel
+      Left = 573
+      Top = 32
+      Width = 47
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_unit2: TLabel
+      Left = 573
+      Top = 56
+      Width = 47
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_unit3: TLabel
+      Left = 573
+      Top = 80
+      Width = 47
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_unit4: TLabel
+      Left = 573
+      Top = 104
+      Width = 47
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_unit5: TLabel
+      Left = 573
+      Top = 128
+      Width = 47
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_unit6: TLabel
+      Left = 573
+      Top = 152
+      Width = 47
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_unit7: TLabel
+      Left = 573
+      Top = 176
+      Width = 47
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_unit8: TLabel
+      Left = 573
+      Top = 200
+      Width = 47
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_unit9: TLabel
+      Left = 573
+      Top = 224
+      Width = 47
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_unit10: TLabel
+      Left = 573
+      Top = 248
+      Width = 47
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblamount1: TLabel
+      Left = 620
+      Top = 32
+      Width = 150
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblamount2: TLabel
+      Left = 620
+      Top = 56
+      Width = 150
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblamount3: TLabel
+      Left = 620
+      Top = 80
+      Width = 150
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblamount4: TLabel
+      Left = 620
+      Top = 104
+      Width = 150
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblamount5: TLabel
+      Left = 620
+      Top = 128
+      Width = 150
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblamount6: TLabel
+      Left = 620
+      Top = 152
+      Width = 150
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblamount7: TLabel
+      Left = 620
+      Top = 176
+      Width = 150
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblamount8: TLabel
+      Left = 620
+      Top = 200
+      Width = 150
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblamount9: TLabel
+      Left = 620
+      Top = 224
+      Width = 150
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblamount10: TLabel
+      Left = 620
+      Top = 248
+      Width = 150
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Label49: TLabel
+      Left = 8
+      Top = 8
+      Width = 109
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Caption = #3619#3627#3633#3626#3626#3636#3609#3588#3657#3634
+      Color = clMedGray
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Label50: TLabel
+      Left = 118
+      Top = 8
+      Width = 234
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Caption = #3594#3639#3656#3629#3626#3636#3609#3588#3657#3634
+      Color = clMedGray
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Label9: TLabel
+      Left = 354
+      Top = 8
+      Width = 100
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Caption = #3619#3634#3588#3634'/'#3627#3609#3656#3623#3618
+      Color = clMedGray
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Label51: TLabel
+      Left = 453
+      Top = 8
+      Width = 102
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Caption = #3611#3619#3636#3617#3634#3603
+      Color = clMedGray
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Label52: TLabel
+      Left = 557
+      Top = 8
+      Width = 45
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Caption = #3627#3609#3656#3623#3618
+      Color = clMedGray
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Label53: TLabel
+      Left = 605
+      Top = 8
+      Width = 158
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Caption = #3619#3634#3588#3634#3619#3623#3617
+      Color = clMedGray
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_num1: TLabel
+      Left = 116
+      Top = 33
+      Width = 144
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_num2: TLabel
+      Left = 116
+      Top = 56
+      Width = 144
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_num3: TLabel
+      Left = 116
+      Top = 80
+      Width = 144
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_num4: TLabel
+      Left = 116
+      Top = 104
+      Width = 144
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_num5: TLabel
+      Left = 116
+      Top = 128
+      Width = 144
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_num6: TLabel
+      Left = 116
+      Top = 152
+      Width = 144
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_num7: TLabel
+      Left = 116
+      Top = 176
+      Width = 144
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_num8: TLabel
+      Left = 116
+      Top = 200
+      Width = 144
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_num9: TLabel
+      Left = 116
+      Top = 224
+      Width = 144
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Lblmat_num10: TLabel
+      Left = 116
+      Top = 248
+      Width = 144
+      Height = 25
+      AutoSize = False
+      Color = clInactiveCaption
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object PNo01: TLabel
+      Left = 770
+      Top = 32
+      Width = 20
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clMedGray
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object PNo02: TLabel
+      Left = 770
+      Top = 56
+      Width = 20
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clMedGray
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object PNo03: TLabel
+      Left = 770
+      Top = 80
+      Width = 20
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clMedGray
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object PNo04: TLabel
+      Left = 770
+      Top = 104
+      Width = 20
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clMedGray
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object PNo05: TLabel
+      Left = 770
+      Top = 128
+      Width = 20
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clMedGray
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object PNo06: TLabel
+      Left = 770
+      Top = 152
+      Width = 20
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clMedGray
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object PNo07: TLabel
+      Left = 770
+      Top = 176
+      Width = 20
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clMedGray
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object PNo08: TLabel
+      Left = 770
+      Top = 200
+      Width = 20
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clMedGray
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object PNo09: TLabel
+      Left = 770
+      Top = 224
+      Width = 20
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clMedGray
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object PNo10: TLabel
+      Left = 770
+      Top = 248
+      Width = 20
+      Height = 25
+      Alignment = taCenter
+      AutoSize = False
+      Color = clMedGray
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      Layout = tlCenter
+    end
+    object Label65: TLabel
+      Left = 352
+      Top = 288
+      Width = 179
+      Height = 100
+      Caption = 
+        #3617#3641#3621#3588#3656#3634#3626#3636#3609#3588#3657#3634#3585#3656#3629#3609#3621#3604'       '#3626#3656#3623#3609#3621#3604' (%)                 % '#3617#3641#3621#3588#3656#3634#3626#3636#3609#3588 +
+        #3657#3634#3619#3623#3617' VAT '#3626#3640#3607#3608#3636' '#3616#3634#3625#3637#3617#3641#3621#3588#3656#3634#3648#3614#3636#3656#3617' (VAT 7%) '#3617#3641#3621#3588#3656#3634#3626#3636#3609#3588#3657#3634#3585#3656#3629#3609' VAT'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWhite
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      WordWrap = True
+    end
+    object LblDiscount: TLabel
+      Left = 440
+      Top = 309
+      Width = 73
+      Height = 16
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = '100.00'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object LblTot_amount: TLabel
+      Left = 544
+      Top = 290
+      Width = 215
+      Height = 16
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = '00000'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object LblDisValue: TLabel
+      Left = 544
+      Top = 309
+      Width = 215
+      Height = 16
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = '00000'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Gtot_Amt: TLabel
+      Left = 544
+      Top = 328
+      Width = 215
+      Height = 25
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = '00000'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlue
+      Font.Height = -19
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object LblVat: TLabel
+      Left = 544
+      Top = 352
+      Width = 215
+      Height = 16
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = '00000'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object LblNetprice: TLabel
+      Left = 544
+      Top = 370
+      Width = 215
+      Height = 16
+      Alignment = taRightJustify
+      AutoSize = False
+      Caption = '00000'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -16
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Edtmat_num1: TEdit
+      Left = 5
+      Top = 32
+      Width = 110
+      Height = 24
+      AutoSize = False
+      CharCase = ecUpperCase
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      MaxLength = 18
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 0
+    end
+    object Edtmat_num2: TEdit
+      Left = 5
+      Top = 56
+      Width = 110
+      Height = 24
+      AutoSize = False
+      CharCase = ecUpperCase
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      MaxLength = 18
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 2
+    end
+    object Edtmat_num3: TEdit
+      Left = 5
+      Top = 80
+      Width = 110
+      Height = 24
+      AutoSize = False
+      CharCase = ecUpperCase
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      MaxLength = 18
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 4
+    end
+    object Edtmat_num4: TEdit
+      Left = 5
+      Top = 104
+      Width = 110
+      Height = 24
+      AutoSize = False
+      CharCase = ecUpperCase
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      MaxLength = 18
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 6
+    end
+    object Edtmat_num5: TEdit
+      Left = 5
+      Top = 128
+      Width = 110
+      Height = 24
+      AutoSize = False
+      CharCase = ecUpperCase
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      MaxLength = 18
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 8
+    end
+    object Edtmat_num6: TEdit
+      Left = 5
+      Top = 152
+      Width = 110
+      Height = 24
+      AutoSize = False
+      CharCase = ecUpperCase
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      MaxLength = 18
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 10
+    end
+    object Edtmat_num7: TEdit
+      Left = 5
+      Top = 176
+      Width = 110
+      Height = 24
+      AutoSize = False
+      CharCase = ecUpperCase
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      MaxLength = 18
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 12
+    end
+    object Edtmat_num8: TEdit
+      Left = 5
+      Top = 200
+      Width = 110
+      Height = 24
+      AutoSize = False
+      CharCase = ecUpperCase
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      MaxLength = 18
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 14
+    end
+    object Edtmat_num9: TEdit
+      Left = 5
+      Top = 224
+      Width = 110
+      Height = 24
+      AutoSize = False
+      CharCase = ecUpperCase
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      MaxLength = 18
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 16
+    end
+    object Edtmat_num10: TEdit
+      Left = 5
+      Top = 248
+      Width = 110
+      Height = 24
+      AutoSize = False
+      CharCase = ecUpperCase
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      MaxLength = 18
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 18
+    end
+    object EdtQty1: TEdit
+      Left = 470
+      Top = 32
+      Width = 102
+      Height = 24
+      AutoSize = False
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 1
+    end
+    object EdtQty2: TEdit
+      Left = 470
+      Top = 56
+      Width = 102
+      Height = 24
+      AutoSize = False
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 3
+    end
+    object EdtQty3: TEdit
+      Left = 470
+      Top = 80
+      Width = 102
+      Height = 24
+      AutoSize = False
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 5
+    end
+    object EdtQty4: TEdit
+      Left = 470
+      Top = 104
+      Width = 102
+      Height = 24
+      AutoSize = False
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 7
+    end
+    object EdtQty5: TEdit
+      Left = 470
+      Top = 128
+      Width = 102
+      Height = 24
+      AutoSize = False
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 9
+    end
+    object EdtQty6: TEdit
+      Left = 470
+      Top = 152
+      Width = 102
+      Height = 24
+      AutoSize = False
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 11
+    end
+    object EdtQty7: TEdit
+      Left = 470
+      Top = 176
+      Width = 102
+      Height = 24
+      AutoSize = False
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 13
+    end
+    object EdtQty8: TEdit
+      Left = 470
+      Top = 200
+      Width = 102
+      Height = 24
+      AutoSize = False
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 15
+    end
+    object EdtQty9: TEdit
+      Left = 470
+      Top = 224
+      Width = 102
+      Height = 24
+      AutoSize = False
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 17
+    end
+    object EdtQty10: TEdit
+      Left = 470
+      Top = 248
+      Width = 102
+      Height = 24
+      AutoSize = False
+      Color = clCream
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -13
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 19
+    end
+  end
+  object EdtCust_ID: TEdit
+    Left = 341
+    Top = 71
+    Width = 97
+    Height = 24
+    Color = clCream
+    Enabled = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    MaxLength = 8
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 4
+  end
+end

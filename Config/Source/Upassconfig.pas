@@ -1,0 +1,107 @@
+unit Upassconfig;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls;
+
+type
+  TFrmPassconfig = class(TForm)
+    Panel1: TPanel;
+    Button1: TButton;
+    Button2: TButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit2KeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+  public
+  pass : boolean;
+    { Public declarations }
+  end;
+
+var
+  FrmPassconfig: TFrmPassconfig;
+
+implementation
+
+uses Udatamodule, Uconfig;
+
+{$R *.dfm}
+
+procedure TFrmPassconfig.Button1Click(Sender: TObject);
+var
+  sqls: string;
+begin
+      sqls := 'Select SALES_PASS,ROLE'+#13#10+'From SALESMAN'+#13#10+
+              'Where SALES_ID = '''+Edit1.Text+''' ';
+      with FrmDatamodule.ADOQuery1 do
+      begin
+        Close;
+        SQL.Clear;
+        SQL.Add(sqls);
+        Open;
+      end;
+      if FrmDataModule.ADOQuery1.RecordCount = 0 then
+        begin
+        showmessage('ข้อมูลไม่ถูกต้อง กรุณาใส่ข้อมูลใหม่');
+        Edit1.SetFocus;
+        end
+      else
+        begin
+        if FrmDatamodule.ADOQuery1.FieldValues['ROLE'] = '9' then
+          begin
+          //*****
+          if Edit2.Text = FrmDatamodule.ADOQuery1.FieldValues['SALES_PASS'] then
+            begin
+            pass:=true;
+            close;
+            end
+          else
+            begin
+            showmessage('รหัสผ่านไม่ถูกต้อง กรุณาใส่รหัสใหม่');
+            Edit2.SetFocus;
+            end;
+          //*****
+          end
+        else
+          showmessage('คุณไม่สามารถ เข้าระบบได้, ต้องเป็น admin เท่านั้น');
+          Edit1.SetFocus;
+        end;
+
+end;
+
+
+procedure TFrmPassconfig.Button2Click(Sender: TObject);
+begin
+      pass:=false;
+      Close;
+      //Application.Terminate;
+end;
+
+procedure TFrmPassconfig.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+    Edit2.Clear;
+    If key = #13 then
+      begin
+      key := #0;
+      Edit2.SetFocus;
+      end;
+end;
+
+procedure TFrmPassconfig.Edit2KeyPress(Sender: TObject; var Key: Char);
+begin
+    If key = #13 then
+      begin
+      key := #0;
+      Button1.SetFocus;
+      end;
+end;
+
+end.
