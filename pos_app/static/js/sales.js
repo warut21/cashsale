@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
         displayMessage('Searching products...', 'info');
-        const products = await apiCall(`/products?search_term=${encodeURIComponent(searchTerm)}`);
+        const products = await apiCall(`/api/products?search_term=${encodeURIComponent(searchTerm)}`); // Changed URL
         productSearchResultsUl.innerHTML = '';
         if (products && products.length > 0) { // apiCall now returns data directly on success
             products.forEach(product => {

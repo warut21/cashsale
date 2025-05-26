@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from pos_app.models import FinishGood, db
 from sqlalchemy import or_
 
-product_bp = Blueprint('product_bp', __name__, url_prefix='/products')
+product_bp = Blueprint('product_bp', __name__, url_prefix='/api/products') # Changed prefix
 
 @product_bp.route('', methods=['GET'])
 def list_products():

@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         
         displayMessage(productSearchMessageDiv, 'Searching products...', 'info');
-        const result = await apiCall(`/products?search_term=${encodeURIComponent(searchTerm)}`);
+        const result = await apiCall(`/api/products?search_term=${encodeURIComponent(searchTerm)}`); // Changed URL
 
         if (result.error) {
             renderProducts([]); // Clears list and shows "No products found" via renderProducts logic
