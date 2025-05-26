@@ -33,6 +33,7 @@ A Point of Sale (POS) application developed using Python, Flask, and MySQL. This
 *   Python (version 3.8 or higher recommended).
 *   MySQL Server (version 5.7 or higher recommended).
 *   Git (for cloning the repository).
+*   **OS Compatibility:** The application is compatible with Windows, Linux, and macOS, provided the other prerequisites are met.
 
 ## Setup Instructions
 
@@ -44,10 +45,19 @@ A Point of Sale (POS) application developed using Python, Flask, and MySQL. This
    *(Replace `<your_repository_url_here>` and `<repository_directory_name>` with actual values)*
 
 **2. Create and Activate a Python Virtual Environment:**
+   *   Ensure you are using `python` or `python3` as appropriate for your system (typically `python` on Windows if installed from python.org, and `python3` on Linux/macOS).
    ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   python -m venv venv
    ```
+   *   Activate the virtual environment:
+     *   **On Windows (Command Prompt/PowerShell):**
+       ```bash
+       venv\Scripts\activate
+       ```
+     *   **On Linux/macOS (bash/zsh):**
+       ```bash
+       source venv/bin/activate
+       ```
 
 **3. Install Dependencies:**
    ```bash
@@ -71,6 +81,11 @@ A Point of Sale (POS) application developed using Python, Flask, and MySQL. This
      SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://root:@localhost/py_pos_db'
      ```
    *   If your MySQL setup differs (e.g., different user, password, host, or port), you should adjust the `MYSQL_USER`, `MYSQL_PASSWORD`, `MYSQL_HOST`, or the full `SQLALCHEMY_DATABASE_URI` in `pos_app/config.py`, or set the corresponding environment variables.
+
+**6. Windows Specific Notes (Optional):**
+   *   **Python Installation:** When installing Python on Windows from python.org, ensure the option "Add Python to PATH" is checked during installation.
+   *   **MySQL Server:** For Windows, you can install MySQL Community Server directly. During setup, configuring it to run as a Windows service is recommended. Alternatively, packages like XAMPP or WAMP include MySQL and can be used.
+   *   **MySQL Client Tools:** Ensure MySQL command-line tools are added to your system's PATH if you want to use commands like `mysql` directly from Command Prompt or PowerShell. This is usually an option during MySQL Server installation.
 
 ## Running the Application
 
