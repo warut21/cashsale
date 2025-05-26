@@ -16,3 +16,16 @@ def sales_page():
     # This page should ideally be protected.
     # The client-side JS will handle redirect if no user info is found in localStorage.
     return render_template('sales.html')
+
+@view_bp.route('/customers')
+def customers_page():
+    return render_template('customers.html')
+
+@view_bp.route('/products')
+def products_page():
+    return render_template('products.html')
+
+@view_bp.route('/history')
+def sales_history_page():
+    # Placeholder for sales history page
+    return "Sales History Page - Coming Soon!"

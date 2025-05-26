@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}Product Information{% endblock %}
+
+{% block head_extra %}
+<style>
+    /* Optional: Page-specific styles for products.html */
+    .search-results-area {
+        max-height: 500px; /* Adjust as needed */
+        overflow-y: auto;
+    }
+    .product-card {
+        margin-bottom: 1rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-4">
+    <h2 class="mb-4">Product Information</h2>
+
+    <div class="card product-card">
+        <div class="card-header">
+            Search Products
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label for="productSearchTerm" class="form-label">Search by Name or Description</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="productSearchTerm" placeholder="Enter product name or description">
+                    <button class="btn btn-outline-secondary" type="button" id="searchProductBtn">Search</button>
+                </div>
+            </div>
+            <div id="productSearchMessage" class="mb-3"></div>
+            <div class="search-results-area">
+                <ul id="productList" class="list-group">
+                    <!-- Product items will be populated here by JavaScript -->
+                    <li class="list-group-item text-muted">Search to display products.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Note: Adding/editing products is not part of this task's scope. -->
+    <!-- If it were, forms for that would go here or in a separate section. -->
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/products.js') }}"></script>
+{% endblock %}
