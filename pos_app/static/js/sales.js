@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     async function handleNewBill() {
         displayMessage('Initiating new bill...', 'info'); // Use 'info' for non-error/success
-        const data = await apiCall('/sales/new_bill', 'POST');
+        const data = await apiCall('/api/sales/new_bill', 'POST'); // Changed URL
         if (data && data.bill_header) {
             currentBill = {
                 BILLH_COMP_ID: data.bill_header.BILLH_COMP_ID,
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
         displayMessage('Searching products...', 'info');
-        const products = await apiCall(`/api/products?search_term=${encodeURIComponent(searchTerm)}`); // Changed URL
+        const products = await apiCall(`/api/products?search_term=${encodeURIComponent(searchTerm)}`); // Verified URL is correct
         productSearchResultsUl.innerHTML = '';
         if (products && products.length > 0) { // apiCall now returns data directly on success
             products.forEach(product => {
@@ -217,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function () {
             BILLD_GOODS_NUM: quantity
         };
         
-        const result = await apiCall('/sales/add_item', 'POST', itemData);
+        const result = await apiCall('/api/sales/add_item', 'POST', itemData); // Changed URL
         if (result && result.bill_detail) { // apiCall returns data directly
             result.bill_detail.product_name = selectedProduct.FG_SHORT;
             currentBill.items.push(result.bill_detail);
@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
         displayMessage('Searching customers...', 'info');
-        const customers = await apiCall(`/customers/search?search_term=${encodeURIComponent(searchTerm)}`);
+        const customers = await apiCall(`/api/customers/search?search_term=${encodeURIComponent(searchTerm)}`); // Changed URL
         customerSearchResultsUl.innerHTML = '';
         if (customers && customers.length > 0) { // apiCall returns data directly
             customers.forEach(customer => {
@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function () {
             BILLH_NO: currentBill.BILLH_NO,
             BILLH_TOTPAY: amountToPay 
         };
-        const result = await apiCall('/sales/pay_bill', 'POST', paymentData);
+        const result = await apiCall('/api/sales/pay_bill', 'POST', paymentData); // Changed URL
         if (result && result.bill_header) { // apiCall returns data directly
             currentBill.STATUS = result.bill_header.BILLH_STATUS;
             currentBill.totals.BILLH_TOTPAY = result.bill_header.BILLH_TOTPAY; 

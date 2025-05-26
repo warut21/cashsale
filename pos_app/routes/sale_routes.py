@@ -4,7 +4,7 @@ from pos_app.routes.auth_routes import get_current_user_placeholder # For simula
 from datetime import datetime
 from sqlalchemy.exc import IntegrityError
 
-sale_bp = Blueprint('sale_bp', __name__, url_prefix='/sales')
+sale_bp = Blueprint('sale_bp', __name__, url_prefix='/api/sales') # Changed prefix
 
 # --- Bill Number Generation ---
 DEFAULT_COMP_ID = 'DEFAULT_COMP'

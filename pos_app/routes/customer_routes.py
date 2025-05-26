@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from pos_app.models import Customer, db # Assuming models.py is in pos_app
 from sqlalchemy import or_
 
-customer_bp = Blueprint('customer_bp', __name__, url_prefix='/customers')
+customer_bp = Blueprint('customer_bp', __name__, url_prefix='/api/customers') # Changed prefix
 
 @customer_bp.route('/search', methods=['GET'])
 def search_customers():

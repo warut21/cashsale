@@ -5,6 +5,17 @@ from pos_app.models import Company, SalesPerson, Control, ProdGroup, Unit, Finis
 app = create_app()
 
 if __name__ == '__main__':
+    # Print registered URL routes
+    with app.app_context(): # Ensure we have app context for url_map
+        print("\nRegistered URL Routes (from run.py):")
+        rules = list(app.url_map.iter_rules())
+        if not rules:
+            print("No routes registered or url_map not fully populated yet here.")
+        else:
+            for rule in rules:
+                print(f"Endpoint: {rule.endpoint}, Methods: {','.join(rule.methods)}, Path: {str(rule)}")
+        print("\n")
+
     # The following block is useful if you want to ensure tables are created
     # when run.py is executed directly, especially for the first time or in dev.
     # For production, migrations (e.g. Flask-Migrate) are a better approach.

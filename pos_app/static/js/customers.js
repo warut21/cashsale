@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        const result = await apiCall('/customers', 'POST', { CUST_ID: custId, CUST_NAME: custName });
+        const result = await apiCall('/api/customers', 'POST', { CUST_ID: custId, CUST_NAME: custName }); // Changed URL
 
         if (result.error) {
             displayMessage(addCustomerMessageDiv, result.message || 'Failed to add customer.');
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        const result = await apiCall(`/customers/search?search_term=${encodeURIComponent(searchTerm)}`);
+        const result = await apiCall(`/api/customers/search?search_term=${encodeURIComponent(searchTerm)}`); // Changed URL
 
         if (result.error) {
             if (result.status === 404) { // No customers found

@@ -3,7 +3,7 @@ from pos_app.models import SalesPerson, db # Assuming models.py is in pos_app
 # For a real app, you'd use a proper password hashing library like werkzeug.security
 # from werkzeug.security import check_password_hash, generate_password_hash
 
-auth_bp = Blueprint('auth_bp', __name__, url_prefix='/auth')
+auth_bp = Blueprint('auth_bp', __name__, url_prefix='/api/auth') # Changed prefix
 
 @auth_bp.route('/login', methods=['POST'])
 def login():
