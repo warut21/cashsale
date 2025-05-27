@@ -66,15 +66,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // --- Helper Functions ---
-    function displayMessage(message, type = 'error') { // Changed 'error' to 'danger' for Bootstrap alert consistency
+    function displayMessage(message, type = 'error') { 
         if (!salesMessageAreaDiv) return;
-        // Using Bootstrap alert styling for messages
-        const alertType = type === 'success' ? 'alert-success' : 'alert-danger'; // Default to danger for 'error' or other
+        const alertType = type === 'success' ? 'alert-success' : (type === 'info' ? 'alert-info' : 'alert-danger');
         salesMessageAreaDiv.innerHTML = `<div class="alert ${alertType} alert-dismissible fade show" role="alert">
                                             ${message}
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                          </div>`;
-        // salesMessageAreaDiv.className = `message-area ${type}`; // Old way
     }
     
     async function apiCall(endpoint, method = 'GET', body = null) {
@@ -87,16 +85,45 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         try {
             const response = await fetch(endpoint, options);
-            const data = await response.json(); // Assume JSON response
             if (!response.ok) {
-                // Display message using the new displayMessage function for consistency
-                displayMessage(data.message || `Error: ${response.status}`, 'danger');
-                return null; 
+                let errorMsg = `Error: ${response.status}`;
+                try {
+                    // Try to get more specific error from body
+                    const errText = await response.text(); 
+                    // Attempt to parse as JSON if server sends JSON errors
+                    try {
+                        const errJson = JSON.parse(errText);
+                        errorMsg = errJson.message || errText;
+                    } catch (e) {
+                        // If not JSON, use the text directly (or part of it)
+                        errorMsg = `Server error ${response.status}: ${errText.substring(0, 200)}`;
+                    }
+                } catch (e) { /* ignore if reading/parsing error body fails */ }
+                displayMessage(errorMsg, 'danger');
+                return null;
             }
-            return data;
+            
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.indexOf("application/json") !== -1) {
+                return await response.json(); // Return data directly
+            } else {
+                // Handle cases where response.ok is true but content isn't JSON
+                const textData = await response.text();
+                // If expecting JSON but got something else, it might be an issue or specific design
+                // For now, if it was 'ok' but not JSON, we might log it or handle as a special case
+                // For this app, most successful API calls return JSON.
+                // If a 204 No Content is expected for some POST/DELETE, this needs adjustment.
+                if (response.status === 204) return { success: true, message: "Operation successful (No Content)"}; // Example handling for 204
+                
+                console.warn('Received non-JSON response from server for an OK request: ', textData.substring(0,100));
+                // Depending on the call, this might be an error or expected.
+                // For now, let's assume callers expect JSON object or array from successful calls.
+                // If the caller can handle text, this could return textData.
+                return { data: textData }; // Or return null if JSON is strictly expected
+            }
         } catch (error) {
             console.error(`API call to ${endpoint} failed:`, error);
-            displayMessage('Network error or server unavailable.', 'danger');
+            displayMessage('Network error or server unavailable. Check console for details.', 'danger');
             return null;
         }
     }
@@ -140,8 +167,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     async function handleNewBill() {
-        displayMessage('Initiating new bill...', 'info'); // Use 'info' for non-error/success
-        const data = await apiCall('/api/sales/new_bill', 'POST'); // Changed URL
+        displayMessage('Initiating new bill...', 'info'); 
+        const data = await apiCall('/api/sales/new_bill', 'POST'); 
         if (data && data.bill_header) {
             currentBill = {
                 BILLH_COMP_ID: data.bill_header.BILLH_COMP_ID,
@@ -152,9 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
             };
             updateBillDisplay();
             displayMessage('New bill initiated successfully.', 'success');
-        } else {
-            // displayMessage is called by apiCall on error
-        }
+        } 
     }
 
     async function handleSearchProducts() {
@@ -164,12 +189,12 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
         displayMessage('Searching products...', 'info');
-        const products = await apiCall(`/api/products?search_term=${encodeURIComponent(searchTerm)}`); // Verified URL is correct
+        const products = await apiCall(`/api/products?search_term=${encodeURIComponent(searchTerm)}`); 
         productSearchResultsUl.innerHTML = '';
-        if (products && products.length > 0) { // apiCall now returns data directly on success
+        if (products && products.length > 0) { 
             products.forEach(product => {
                 const li = document.createElement('li');
-                li.className = 'list-group-item list-group-item-action'; // Bootstrap class
+                li.className = 'list-group-item list-group-item-action'; 
                 li.textContent = `${product.FG_SHORT} (ID: ${product.FG_ID}) - $${parseFloat(product.FG_PRICE).toFixed(2)}`;
                 li.dataset.productId = product.FG_ID;
                 li.dataset.productPrice = product.FG_PRICE;
@@ -186,12 +211,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
                 productSearchResultsUl.appendChild(li);
             });
-            // Clear "Searching..." message if results are found
             if (salesMessageAreaDiv.textContent === 'Searching products...') salesMessageAreaDiv.innerHTML = '';
         } else if (products && products.length === 0) {
             displayMessage('No products found matching your search.', 'info');
         }
-        // If apiCall returned null, it already displayed an error.
     }
     
     async function handleAddItemToBill() {
@@ -217,8 +240,8 @@ document.addEventListener('DOMContentLoaded', function () {
             BILLD_GOODS_NUM: quantity
         };
         
-        const result = await apiCall('/api/sales/add_item', 'POST', itemData); // Changed URL
-        if (result && result.bill_detail) { // apiCall returns data directly
+        const result = await apiCall('/api/sales/add_item', 'POST', itemData); 
+        if (result && result.bill_detail) { 
             result.bill_detail.product_name = selectedProduct.FG_SHORT;
             currentBill.items.push(result.bill_detail);
             currentBill.totals = result.updated_bill_header_totals;
@@ -229,7 +252,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (addItemToBillBtn) addItemToBillBtn.disabled = true;
             if (itemQuantityInput) itemQuantityInput.value = '1';
         }
-        // If apiCall returned null, it already displayed an error.
     }
 
     async function handleSearchCustomers() {
@@ -239,12 +261,12 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
         displayMessage('Searching customers...', 'info');
-        const customers = await apiCall(`/api/customers/search?search_term=${encodeURIComponent(searchTerm)}`); // Changed URL
+        const customers = await apiCall(`/api/customers/search?search_term=${encodeURIComponent(searchTerm)}`); 
         customerSearchResultsUl.innerHTML = '';
-        if (customers && customers.length > 0) { // apiCall returns data directly
+        if (customers && customers.length > 0) { 
             customers.forEach(customer => {
                 const li = document.createElement('li');
-                li.className = 'list-group-item list-group-item-action'; // Bootstrap class
+                li.className = 'list-group-item list-group-item-action'; 
                 li.textContent = `${customer.CUST_NAME} (ID: ${customer.CUST_ID})`;
                 li.dataset.customerId = customer.CUST_ID;
                 li.dataset.customerName = customer.CUST_NAME;
@@ -252,11 +274,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     selectedCustomer = { CUST_ID: customer.CUST_ID, CUST_NAME: customer.CUST_NAME };
                     if (currentCustomerDisplayDiv) currentCustomerDisplayDiv.textContent = `ID: ${customer.CUST_ID}, Name: ${customer.CUST_NAME}`;
                     if (customerSearchResultsUl) customerSearchResultsUl.innerHTML = ''; 
-                    // TODO: Associate customer with currentBill if active.
-                    // This would typically involve an API call to update the BillHeader.
-                    // E.g., PATCH /sales/bill_header/{comp_id}/{bill_no} with { CUST_ID: customer.CUST_ID }
                     if (currentBill) {
-                        currentBill.CUST_ID = customer.CUST_ID; // Local state update
+                        currentBill.CUST_ID = customer.CUST_ID; 
                         displayMessage(`Customer ${customer.CUST_NAME} selected for current bill. (Backend update for bill customer not implemented in this step)`, 'info');
                     }
                 });
@@ -266,11 +285,8 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (customers && customers.length === 0) {
             displayMessage('No customers found.', 'info');
         }
-         // If apiCall returned null, it already displayed an error.
     }
     
-    // Removed handleAddCustomer function
-
     async function handlePayBill() {
         if (!currentBill || currentBill.STATUS !== 'pending') {
             displayMessage('No pending bill to pay or bill already processed.', 'danger');
@@ -284,15 +300,14 @@ document.addEventListener('DOMContentLoaded', function () {
             BILLH_NO: currentBill.BILLH_NO,
             BILLH_TOTPAY: amountToPay 
         };
-        const result = await apiCall('/api/sales/pay_bill', 'POST', paymentData); // Changed URL
-        if (result && result.bill_header) { // apiCall returns data directly
+        const result = await apiCall('/api/sales/pay_bill', 'POST', paymentData); 
+        if (result && result.bill_header) { 
             currentBill.STATUS = result.bill_header.BILLH_STATUS;
             currentBill.totals.BILLH_TOTPAY = result.bill_header.BILLH_TOTPAY; 
             updateBillDisplay();
             displayMessage('Bill paid successfully.', 'success');
             if (payBillBtn) payBillBtn.disabled = true;
         }
-        // If apiCall returned null, it already displayed an error.
     }
 
     // --- Attach Event Listeners ---
@@ -302,7 +317,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (searchProductBtn) searchProductBtn.addEventListener('click', handleSearchProducts);
         if (addItemToBillBtn) addItemToBillBtn.addEventListener('click', handleAddItemToBill);
         if (searchCustomerBtn) searchCustomerBtn.addEventListener('click', handleSearchCustomers);
-        // Removed: event listener for newCustomerForm
         if (payBillBtn) payBillBtn.addEventListener('click', handlePayBill);
         
         if (productSearchTermInput) productSearchTermInput.addEventListener('keypress', function(e) { if (e.key === 'Enter') handleSearchProducts(); });
